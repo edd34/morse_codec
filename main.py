@@ -31,6 +31,7 @@ def main(message, filename, encode, audio):
         data = message
     else:
         print('Provide a message either with -m or -f option')
+        exit()
     if(encode):
         res = morse_codec.encode_morse(data)
     else:

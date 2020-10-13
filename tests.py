@@ -4,34 +4,34 @@ https://docs.python.org/3/library/unittest.html
 """
 import random
 import unittest
-
+import morse_codec
 
 class TestSequenceFunctions(unittest.TestCase):
     """ This is one of potentially many TestCases """
 
     def setUp(self):
-        self.seq = list(range(10))
+        self.words_to_morse = {
+            "SOS" : "... --- ...",
+            "Bonjour" : "-... --- -. .--- --- ..- .-.",
+            "Eddine" : ". -.. -.. .. -. .",
+            "73" : "--... ...--",
+            "CQ" : "-.-. --.-"
+        }
 
-    def test_shuffle(self):
-        """ make sure the shuffled sequence does not lose any elements """
-        random.shuffle(self.seq)
-        self.seq.sort()
-        self.assertEqual(self.seq, list(range(10)))
+        self.morse_to_words = {
+            "... --- ..." : "SOS",
+            "--- -- .- .-.": "OMAR",
+            "--... ...--" : "73",
+            "-.-. --.-" : "CQ"
+        }
 
-        # should raise an exception for an immutable sequence
-        self.assertRaises(TypeError, random.shuffle, (1, 2, 3))
+    def test_encode_morse(self):
+        for i in self.words_to_morse:
+            self.assertEqual(morse_codec.encode_morse(i), self.words_to_morse[i])
 
-    def test_choice(self):
-        """ test a choice """
-        element = random.choice(self.seq)
-        self.assertTrue(element in self.seq)
-
-    def test_sample(self):
-        """ test that an exception is raised """
-        with self.assertRaises(ValueError):
-            random.sample(self.seq, 20)
-        for element in random.sample(self.seq, 5):
-            self.assertTrue(element in self.seq)
+    def test_decode_morse(self):
+        for i in self.morse_to_words:
+            self.assertEqual(morse_codec.decode_morse(i), self.morse_to_words[i].upper())
 
 
 if __name__ == '__main__':

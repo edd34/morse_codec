@@ -1,3 +1,7 @@
+"""
+Module morsecodec
+"""
+
 char_to_dots = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
     'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
@@ -22,7 +26,9 @@ dots_to_char = {
     '---...' : ':', '--..--' : ',', '-...-' : '=', '-.-.--' : '!', '.-.-.-' : '.', '-....-' : '-',
     '.-.-.' : '+', '.-..-.' : '"', '..--..' : '?', '-..-.' : '/'
 }
+
 def encode_morse(sentence):
+    '''Takes a sentence as argument, return an encoded morse code'''
     upper_sentence = sentence.upper()
     res = ""
     for char in upper_sentence:
@@ -32,6 +38,7 @@ def encode_morse(sentence):
     return res[:-1]
 
 def decode_morse(morse_code):
+    '''Takes a morse code as argument, return a plain text decoded'''
     res = ""
     for char in morse_code.split(' '):
         if not char in dots_to_char.keys():

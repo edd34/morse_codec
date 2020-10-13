@@ -2,7 +2,6 @@
 This file demonstrates common uses for the Python unittest module
 https://docs.python.org/3/library/unittest.html
 """
-import random
 import unittest
 import morse_codec
 
@@ -26,10 +25,12 @@ class TestSequenceFunctions(unittest.TestCase):
         }
 
     def test_encode_morse(self):
+        '''Test function encode morse '''
         for i in self.words_to_morse:
             self.assertEqual(morse_codec.encode_morse(i), self.words_to_morse[i])
 
     def test_decode_morse(self):
+        '''Test function decode morse '''
         for i in self.morse_to_words:
             self.assertEqual(morse_codec.decode_morse(i), self.morse_to_words[i].upper())
 

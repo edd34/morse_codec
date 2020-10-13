@@ -2,7 +2,8 @@
 """
 Module Docstring
 """
-import morse_codec, beep
+import morse_codec
+import beep
 
 __author__ = "Eddine OMAR"
 __version__ = "1.0.0"
@@ -17,5 +18,4 @@ def main():
 
 
 if __name__ == "__main__":
-    """ This is executed when run from the command line """
     main()

@@ -1,5 +1,4 @@
 # Morse Codec
-
 Morse Codec is a python library intended to encode and decode word to morse code and vice versa. It can also generate beep according to a given morse code.
 
 ## Installation (optionnal)

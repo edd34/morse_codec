@@ -2,15 +2,18 @@
 """
 Module Docstring
 """
+import morse_codec, beep
 
-__author__ = "Your Name"
-__version__ = "0.1.0"
+__author__ = "Eddine OMAR"
+__version__ = "1.0.0"
 __license__ = "MIT"
 
 
 def main():
     """ Main entry point of the app """
-    print("hello world")
+    sentence = "SOS"
+    print(sentence, morse_codec.encode_morse(sentence))
+    beep.morse_code_to_beep(morse_codec.encode_morse(sentence))
 
 
 if __name__ == "__main__":

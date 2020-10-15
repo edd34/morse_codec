@@ -39,6 +39,7 @@ def main(message, filename, encode, audio):
     print("Input: {}\nOutput: {}".format(data, res))
     if(audio and encode):
         beep.morse_code_to_beep(res)
+    return 0
 
 
 if __name__ == "__main__":

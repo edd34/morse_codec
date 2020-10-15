@@ -17,12 +17,7 @@ class TestSequenceFunctions(unittest.TestCase):
             "CQ" : "-.-. --.-"
         }
 
-        self.morse_to_words = {
-            "... --- ..." : "SOS",
-            "--- -- .- .-.": "OMAR",
-            "--... ...--" : "73",
-            "-.-. --.-" : "CQ"
-        }
+        self.morse_to_words = {v: k for k, v in self.words_to_morse.items()}
 
     def test_encode_morse(self):
         '''Test function encode morse '''
